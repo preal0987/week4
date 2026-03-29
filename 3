@@ -1,0 +1,30 @@
+function A = ssm_25012028_func_3(R)
+    global V
+    A = pi*R.*sqrt(R.^2 + (3*V./(pi*R.^2)).^2);
+end
+
+global V
+V = 10;
+
+R = 0.1:0.01:5;
+A = ssm_25012028_func_3(R);
+
+plot(R, A)
+grid on
+xlabel('r')
+ylabel('A(r)')
+title('Surface Area of Cone for V = 10')
+
+rmin = fminbnd(@ssm_25012028_func_3, 0.1, 5)
+Amin = ssm_25012028_func_3(rmin)
+
+h = 3*V/(pi*rmin^2)
+
+Alimit = 1.1 * Amin;
+
+R_ok = R(A <= Alimit);
+rmin1 = min(R_ok);
+rmax1 = max(R_ok);
+
+disp(rmin - rmin1)
+disp(rmax1 - rmin)
