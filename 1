@@ -1,0 +1,18 @@
+function y = ssm_25012028_func_1(x)
+      y = 0.3*x - sin(2*x);
+end
+
+x = 0:0.01:4;
+y = ssm_25012028_func_1(x);
+
+plot(x, y)
+grid on
+xlabel('x')
+ylabel('f(x)')
+title('f(x) = 0.3x - sin(2x)')
+
+root1 = fzero(@ssm_25012028_func_1, 0)
+root2 = fzero(@ssm_25012028_func_1, 1.5)
+
+xmin = fminbnd(@ssm_25012028_func_1, 0, 4)
+fmin = ssm_25012028_func_1(xmin)
