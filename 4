@@ -1,0 +1,10 @@
+f = @(x) 10*exp(-2*x);
+
+x = 0:0.01:2;
+y = f(x);
+
+plot(x, y)
+grid on
+xlabel('x')
+ylabel('f(x)')
+title('f(x) = 10e^{-2x}')
