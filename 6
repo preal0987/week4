@@ -1,0 +1,13 @@
+f = @(x) x.^2;
+g = @(y) 3*cos(y);
+h = @(z) 6*exp(z);
+F = @(x) h(g(f(x)));
+
+x = 0:0.01:4;
+y = F(x);
+
+plot(x, y)
+grid on
+xlabel('x')
+ylabel('6e^{3cos(x^2)}')
+title('y = 6e^{3cos(x^2)}')
