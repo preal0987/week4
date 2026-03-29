@@ -1,0 +1,19 @@
+f = @(x) 30*x.^2 - 300*x + 4;
+
+x = 0:0.01:10;
+y = f(x);
+
+plot(x, y)
+grid on
+xlabel('x')
+ylabel('f(x)')
+title('f(x) = 30x^2 - 300x + 4')
+
+xmin = fminbnd(f, 0, 10);
+fmin = f(xmin);
+
+disp('최소값의 위치:')
+disp(xmin)
+
+disp('최소값:')
+disp(fmin)
